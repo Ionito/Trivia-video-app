@@ -1,0 +1,18 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "answerA": "respuesta 1",
+      "answerB": "respuesta 2",
+      "correctAnswer": "A",
+      "question": "Esta es la pregunta 1"
+    },
+    {
+      "id": 2,
+      "answerA": "respuesta 1",
+      "answerB": "respuesta 2",
+      "correctAnswer": "A",
+      "question": "Esta es la pregunta 2"
+    }
+  ]
+}

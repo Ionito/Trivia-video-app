@@ -1,0 +1,31 @@
+{
+  "name": "flowics",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
+    "start": "concurrently --kill-others \"json-server --watch db.json --port 2000\" \"vite\""
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.0.15",
+    "@chakra-ui/react": "^1.6.8",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "concurrently": "^6.3.0",
+    "framer-motion": "^4.1.17",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-id-generator": "^3.0.2",
+    "react-query": "^3.25.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.3",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react": "^1.0.0",
+    "json-server": "^0.16.3",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.0"
+  }
+}
