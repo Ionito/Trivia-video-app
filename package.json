@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "start": "concurrently --kill-others \"json-server --watch db.json --port 2000\" \"vite\""
+    "start": "concurrently --kill-others \"json-server --delay 2000 --watch db.json --port 2000\" \"vite\""
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.15",
@@ -13,11 +13,13 @@
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "concurrently": "^6.3.0",
+    "formik": "^2.2.9",
     "framer-motion": "^4.1.17",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-id-generator": "^3.0.2",
-    "react-query": "^3.25.1"
+    "react-query": "^3.25.1",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@types/node": "^16.10.3",

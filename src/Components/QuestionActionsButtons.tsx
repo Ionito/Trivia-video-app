@@ -4,9 +4,10 @@ import { HStack, IconButton, Button } from '@chakra-ui/react'
 
 interface Props {
   editMode: boolean
+  isLoading: boolean
   onDiscard: () => void
   onEdit: (value: boolean) => void
-  onDelete: (e: React.MouseEvent) => void
+  onDelete: () => void
   onSave: () => void
 }
 
@@ -14,6 +15,7 @@ const QuestionActionsButtons: React.FC<Props> = ({
   onEdit,
   onDelete,
   editMode,
+  isLoading,
   onDiscard,
   onSave,
 }) => {
@@ -21,22 +23,30 @@ const QuestionActionsButtons: React.FC<Props> = ({
     <HStack>
       {editMode ? (
         <>
-          <Button variant="outline" onClick={() => onDiscard()}>
+          <Button disabled={isLoading} variant="outline" onClick={onDiscard}>
             Discard
           </Button>
-          <Button variant="outline" bg="blue.100" onClick={() => onSave()}>
+          <Button
+            loadingText="Saving..."
+            isLoading={isLoading}
+            variant="outline"
+            bg="blue.100"
+            onClick={onSave}
+          >
             Save
           </Button>
         </>
       ) : (
         <>
           <IconButton
+            disabled={isLoading}
             variant="ghost"
             aria-label="Delete Question"
             icon={<DeleteIcon />}
             onClick={onDelete}
           />
           <IconButton
+            disabled={isLoading}
             variant="ghost"
             aria-label="Edit Question"
             icon={<EditIcon />}

@@ -15,6 +15,9 @@ export async function deleteQuestion(id: number) {
 export async function addQuestion(question: Question) {
   return fetch(`${QUESTIONS_RUTE}`, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify(question),
   }).then((res) => res.json())
 }
@@ -22,6 +25,9 @@ export async function addQuestion(question: Question) {
 export async function editQuestion(question: Question) {
   return fetch(`${QUESTIONS_RUTE}/${question.id}`, {
     method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify(question),
   }).then((res) => res.json())
 }

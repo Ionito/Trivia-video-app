@@ -1,5 +1,14 @@
 import React, { useState } from 'react'
-import { Heading, Stack, Text, Button } from '@chakra-ui/react'
+import {
+  Heading,
+  Stack,
+  Text,
+  Button,
+  Spinner,
+  Alert,
+  AlertIcon,
+  Center,
+} from '@chakra-ui/react'
 import QuestionItem from './QuestionItem'
 import useQuestion from '../Hooks/useQuestion'
 import { Question } from '../Types'
@@ -19,8 +28,6 @@ const ControlPanel: React.FC = () => {
     onOpenQuestion(question)
   }
 
-  if (isLoading) return <Text>'Loading...'</Text>
-
   if (error) return <Text>An error has occurred</Text>
 
   return (
@@ -29,14 +36,29 @@ const ControlPanel: React.FC = () => {
         Trivia Question
       </Heading>
 
-      {data.map((question: Question) => (
-        <QuestionItem
-          key={question.id}
-          {...question}
-          isOpen={openQuestion && openQuestion.id === question.id}
-          onOpen={handleOpen(question)}
-        />
-      ))}
+      {isLoading ? (
+        <Center minH="200px">
+          <Spinner />
+        </Center>
+      ) : (
+        <>
+          {data.length === 0 && (
+            <Alert status="info">
+              <AlertIcon />
+              No Questions to list. Create your first question.
+            </Alert>
+          )}
+
+          {data.map((question: Question) => (
+            <QuestionItem
+              key={question.id}
+              {...question}
+              isOpen={openQuestion && openQuestion.id === question.id}
+              onOpen={handleOpen(question)}
+            />
+          ))}
+        </>
+      )}
 
       {newQuestion && (
         <QuestionItem isNew onCloseNew={() => setNewQuestion(false)} />

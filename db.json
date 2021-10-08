@@ -1,18 +1,18 @@
 {
   "questions": [
     {
-      "id": 1,
-      "answerA": "respuesta 1",
-      "answerB": "respuesta 2",
-      "correctAnswer": "A",
-      "question": "Esta es la pregunta 1"
+      "question": "This is the first question",
+      "answerA": "Answer A",
+      "answerB": "Answer B",
+      "correctAnswer": "B",
+      "id": 1
     },
     {
-      "id": 2,
-      "answerA": "respuesta 1",
-      "answerB": "respuesta 2",
+      "question": "This is the second question",
+      "answerA": "Correct answer",
+      "answerB": "Incorrect Answer",
       "correctAnswer": "A",
-      "question": "Esta es la pregunta 2"
+      "id": 2
     }
   ]
 }

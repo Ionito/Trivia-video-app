@@ -1,6 +1,7 @@
 import React from 'react'
-import { Text, Input, Flex, Stack, Box, Radio, Center } from '@chakra-ui/react'
+import { Text, Input, Flex, Stack, Box, Radio } from '@chakra-ui/react'
 import { CheckIcon } from '@chakra-ui/icons'
+import { useField } from 'formik'
 
 interface Props {
   answer: string
@@ -15,10 +16,12 @@ const AnswerItem: React.FC<Props> = ({
   editMode,
   label,
 }) => {
-  const handleOnChange = (e: React.ChangeEvent) => {
-    console.log(e)
+  const [field] = useField(`answer${label}`)
+  const [radioField, _, radioHelpers] = useField(`correctAnswer`)
+
+  const handleChange = () => {
+    radioHelpers.setValue(label)
   }
-  const handleCorrectAnswer = () => {}
 
   return (
     <>
@@ -26,21 +29,19 @@ const AnswerItem: React.FC<Props> = ({
         <Flex>
           <Stack w="full">
             <Text color="gray.400">{`Answer ${label}:`}</Text>
-            <Input value={answer} onChange={handleOnChange} />
+            <Input type="text" {...field} />
           </Stack>
 
-          <Box
-            w="60px"
-            name="answer"
-            onChange={handleCorrectAnswer}
-            value={isCorrect ? label : undefined}
-          >
+          <Box w="60px" name="answer" value={isCorrect ? label : undefined}>
             <Stack>
               <Text color="gray.400" pb="3" h={9}>
                 {label === 'A' ? 'Correct' : null}
               </Text>
               <Flex justify="center">
-                <Radio value={label} />
+                <Radio
+                  onChange={handleChange}
+                  isChecked={radioField.value === label}
+                />
               </Flex>
             </Stack>
           </Box>
