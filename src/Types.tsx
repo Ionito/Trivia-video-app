@@ -3,11 +3,11 @@ export type Action =
   | { type: 'SHOW_SOLUTION' }
 export type Dispatch = (action: Action) => void
 export type QuestionState = { openQuestion: Question | undefined }
-
+export type Choices = 'A' | 'B'
 export interface Question {
   id: number
   question: string
   answerA: string
   answerB: string
-  correctAnswer: 'A' | 'B'
+  correctAnswer: Choices
 }

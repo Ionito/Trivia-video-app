@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Button } from '@chakra-ui/button'
 import { Stack, Box, Heading, HStack } from '@chakra-ui/layout'
-import { Question } from '../Types'
+import { Choices, Question } from '../Types'
 
 const QuestionOverlay: React.FC<Partial<Question>> = ({
   answerA,
@@ -9,13 +9,13 @@ const QuestionOverlay: React.FC<Partial<Question>> = ({
   question,
   correctAnswer,
 }) => {
-  const [clickedAnswer, setClickedAnswer] = useState<'A' | 'B' | undefined>()
-  const handleClick = (answer: 'A' | 'B') => (e: React.MouseEvent) => {
+  const [clickedAnswer, setClickedAnswer] = useState<Choices | undefined>()
+  const handleClick = (answer: Choices) => (e: React.MouseEvent) => {
     if (!clickedAnswer) {
       setClickedAnswer(answer)
     }
   }
-  const getAssertColor = (assert: 'A' | 'B') => {
+  const getAssertColor = (assert: Choices) => {
     return assert === correctAnswer ? 'green.400' : 'red.500'
   }
 
@@ -36,8 +36,8 @@ const QuestionOverlay: React.FC<Partial<Question>> = ({
         </Heading>
         <HStack spacing="4" w="100%" justify="center">
           <Button
-            borderRadius="50"
-            minW="40%"
+            variant="answer"
+            _hover={{ pointerEvents: clickedAnswer ? false : true }}
             color={clickedAnswer === 'A' ? 'white' : 'green.600'}
             bg={clickedAnswer === 'A' ? getAssertColor('A') : 'white'}
             onClick={handleClick('A')}
@@ -45,8 +45,8 @@ const QuestionOverlay: React.FC<Partial<Question>> = ({
             {answerA}
           </Button>
           <Button
-            borderRadius="50"
-            minW="40%"
+            variant="answer"
+            _hover={{ pointerEvents: clickedAnswer ? false : true }}
             color={clickedAnswer === 'B' ? 'white' : 'green.600'}
             bg={clickedAnswer === 'B' ? getAssertColor('B') : 'white'}
             onClick={handleClick('B')}

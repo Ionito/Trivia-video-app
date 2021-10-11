@@ -11,6 +11,11 @@ export const theme = extendTheme({
           color: 'gray.600',
           w: 'fit-content',
         }),
+        answer: {
+          borderRadius: '50',
+          minW: '40%',
+          transition: 'all 1s',
+        },
       },
     },
   },

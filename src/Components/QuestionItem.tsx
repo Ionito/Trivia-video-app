@@ -91,9 +91,9 @@ const QuestionItem: React.FC<QuestionItem> = ({
       onSubmit={onSubmit}
       enableReinitialize={true}
       validationSchema={Yup.object().shape({
-        question: Yup.string().required('Required'),
-        answerA: Yup.string().required('Required'),
-        answerB: Yup.string().required('Required'),
+        question: Yup.string().trim().required('Required'),
+        answerA: Yup.string().trim().required('Required'),
+        answerB: Yup.string().trim().required('Required'),
       })}
     >
       {(props) => (

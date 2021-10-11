@@ -43,10 +43,12 @@ const ControlPanel: React.FC = () => {
       ) : (
         <>
           {data.length === 0 && (
-            <Alert status="info">
-              <AlertIcon />
-              No Questions to list. Create your first question.
-            </Alert>
+            <Center minH="200px">
+              <Alert status="info">
+                <AlertIcon />
+                No Questions to list. Create your first question.
+              </Alert>
+            </Center>
           )}
 
           {data.map((question: Question) => (

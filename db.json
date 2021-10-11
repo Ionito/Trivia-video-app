@@ -4,13 +4,13 @@
       "question": "This is the first question",
       "answerA": "Answer A",
       "answerB": "Answer B",
-      "correctAnswer": "B",
+      "correctAnswer": "A",
       "id": 1
     },
     {
       "question": "This is the second question",
-      "answerA": "Correct answer",
-      "answerB": "Incorrect Answer",
+      "answerA": "Answer A",
+      "answerB": "Answer B",
       "correctAnswer": "A",
       "id": 2
     }

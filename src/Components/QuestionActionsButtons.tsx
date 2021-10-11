@@ -1,6 +1,7 @@
 import React from 'react'
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons'
 import { HStack, IconButton, Button } from '@chakra-ui/react'
+import { useFormikContext } from 'formik'
 
 interface Props {
   editMode: boolean
@@ -19,6 +20,7 @@ const QuestionActionsButtons: React.FC<Props> = ({
   onDiscard,
   onSave,
 }) => {
+  const { isValid } = useFormikContext()
   return (
     <HStack>
       {editMode ? (
@@ -29,6 +31,7 @@ const QuestionActionsButtons: React.FC<Props> = ({
           <Button
             loadingText="Saving..."
             isLoading={isLoading}
+            disabled={!isValid}
             variant="outline"
             bg="blue.100"
             onClick={onSave}
