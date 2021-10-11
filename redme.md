@@ -11,3 +11,8 @@ App runs on port 3000
 Server runs on port 2000
 
 Using json-server and the file db.json to persist the data. Also simulating a response delay of 2 sec (you can modify in the package.json start command)
+
+Pending issues
+
+- edit on open question
+- delete on open question
