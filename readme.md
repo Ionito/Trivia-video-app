@@ -1,4 +1,4 @@
-#Trivia Video App
+# Trivia Video App
 
 Trivia app for displaying interactive questions over video player.
 
